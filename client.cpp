@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     int sockfd, portno, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
-    int32_t info[2];
+    //int32_t info[2];
 
     //char buffer[256];
     if (argc < 3) {
@@ -59,10 +59,11 @@ int main(int argc, char *argv[])
 	    if (n < 0) 
 	         error("ERROR writing to socket");
 	    //bzero(buffer,256);
-	    n = read(sockfd,info,sizeof(info));
+	    //n = read(sockfd,info,sizeof(info));
 	    if (n < 0) 
 	         error("ERROR reading from socket");
     }
+    usleep(10000);
     close(sockfd);
     return 0;
 }
