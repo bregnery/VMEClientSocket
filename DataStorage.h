@@ -50,7 +50,7 @@ int32_t DataStorage::CAENVME_Init(CVBoardTypes BdType, short Link, short BdNum, 
     	for(i=0; i<2; i++){
 		printf("%d\n",info[i]);
     	}
-	if(info[1] != storage[4]) error("function returned invalid value!\n");
+	//if(info[1] != storage[4]) error("function returned invalid value!\n");
 	return info[0]; 
 }
 
@@ -72,7 +72,7 @@ int32_t DataStorage::CAENVME_End(int32_t Handle, int32_t sockfd){
     	for(i=0; i<2; i++){
 		printf("%d\n",info[i]);
     	}
-	if (info[1] != storage[1]) error("function returned invalid value!\n");
+	//if (info[1] != storage[1]) error("function returned invalid value!\n");
 	return info[0];
 }
 
@@ -96,7 +96,7 @@ int32_t DataStorage::CAENVME_WriteCycle(int32_t Handle, uint32_t Address, void *
     	}
 	//printf("Number of Bytes written: %d\n", n);
 	//usleep(10000);
-	if(info[1] != storage[3]) error("function returned invalid value!\n");
+	//if(info[1] != storage[3]) error("function returned invalid value!\n");
 	return info[0];
 }
 
@@ -118,7 +118,8 @@ int32_t DataStorage::CAENVME_ReadCycle(int32_t Handle, uint32_t Address, void *D
     	for(i=0; i<2; i++){
 		printf("%d\n",info[i]);
     	}
-	if(info[1] != storage[3]) error("function returned invalid value!\n");
+	//if(info[1] != storage[3]) error("function returned invalid value!\n");
+	*((int32_t*)Data) = info[1];
 	return info[0];
 }
 	
