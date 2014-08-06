@@ -50,6 +50,7 @@ int32_t DataStorage::CAENVME_Init(CVBoardTypes BdType, short Link, short BdNum, 
     	for(i=0; i<2; i++){
 		printf("%d\n",info[i]);
     	}
+	*Handle = info[1];
 	//if(info[1] != storage[4]) error("function returned invalid value!\n");
 	return info[0]; 
 }
