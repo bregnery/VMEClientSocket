@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     printf("Data: %x\n", Data);
     */
     int l;
-    for(l=0;l<10;l++){
+    for(l=0;l<100000;l++){
 	    int32_t Data = l;
 	    printf("Sending Data! \n");
 	    n = dataStore.CAENVME_WriteCycle(Handle,0x1800B4,&Data,AM,DW,sockfd);
@@ -75,6 +75,9 @@ int main(int argc, char *argv[])
     	    if(n != cvSuccess){
 		 printf("Return value is not cvSuccess\n");
     	    }
+	    if(Data != l){
+		 error("The Data Value Does not match \n");
+	    }
 	    //if (n < 0) 
 	     //    error("ERROR writing to socket");
 	    //bzero(buffer,256);
@@ -88,6 +91,7 @@ int main(int argc, char *argv[])
     }
     
     usleep(10000);
+    printf("All the data has been sent, Closing Socket\n");
     close(sockfd);
     return 0;
 }
